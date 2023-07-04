@@ -3,16 +3,17 @@ import {
   useColorScheme,
   SafeAreaView,
   View,
-  Text,
   // StyleSheet,
 } from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
+import {StackNavigator} from './src/navigation/StackNavigator';
+import {NavigationContainer} from '@react-navigation/native';
 
 const App = () => {
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
-    backgroundColor: isDarkMode ? 'black' : '#fafafa',
+    backgroundColor: isDarkMode ? '#000' : '#fafafa',
   };
 
   useEffect(() => {
@@ -22,7 +23,9 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <View>
-        <Text>Facilitapp</Text>
+        <NavigationContainer>
+          <StackNavigator />
+        </NavigationContainer>
       </View>
     </SafeAreaView>
   );

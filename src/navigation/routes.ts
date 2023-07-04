@@ -1,0 +1,11 @@
+export enum ROOT_ROUTES {
+  MODAL = 'MODAL',
+  HOME = 'HOME',
+  PRODUCT_LIST = 'PRODUCT_LIST',
+}
+
+export enum HOME_ROUTES {
+  OPENINGS = 'OPENINGS',
+  EQUIPMENT = 'EQUIPMENT',
+  FITTINGS = 'FITTINGS',
+}

@@ -5,6 +5,7 @@ import {RootStack} from '@/navigation';
 import {ROOT_ROUTES} from '@/navigation/routes';
 import {HomeScreen, ModalScreen, ProductsListScreen} from '@/screens';
 import {StyleSheet, View} from 'react-native';
+import {Header} from '@/components';
 
 const App = () => {
   useEffect(() => {
@@ -16,7 +17,10 @@ const App = () => {
   return (
     <View style={styles.mainContainer}>
       <NavigationContainer>
-        <RootStack.Navigator screenOptions={{headerShown: false}}>
+        <RootStack.Navigator
+          screenOptions={{
+            header: () => <Header />,
+          }}>
           <RootStack.Screen name={ROOT_ROUTES.HOME} component={HomeScreen} />
           <RootStack.Screen name={ROOT_ROUTES.MODAL} component={ModalScreen} />
           <RootStack.Screen

@@ -1,34 +1,36 @@
 import React, {useEffect} from 'react';
-import {
-  useColorScheme,
-  SafeAreaView,
-  View,
-  // StyleSheet,
-} from 'react-native';
 import SplashScreen from 'react-native-splash-screen';
-import {StackNavigator} from './src/navigation/StackNavigator';
 import {NavigationContainer} from '@react-navigation/native';
+import {RootStack} from '@/navigation';
+import {ROOT_ROUTES} from '@/navigation/routes';
+import {HomeScreen, ModalScreen, ProductsListScreen} from '@/screens';
+import {StyleSheet, View} from 'react-native';
 
 const App = () => {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? '#000' : '#fafafa',
-  };
-
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
+  /* TODO: ADD THE STORE PROVIDER */
+
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <View>
-        <NavigationContainer>
-          <StackNavigator />
-        </NavigationContainer>
-      </View>
-    </SafeAreaView>
+    <View style={styles.mainContainer}>
+      <NavigationContainer>
+        <RootStack.Navigator screenOptions={{headerShown: false}}>
+          <RootStack.Screen name={ROOT_ROUTES.HOME} component={HomeScreen} />
+          <RootStack.Screen name={ROOT_ROUTES.MODAL} component={ModalScreen} />
+          <RootStack.Screen
+            name={ROOT_ROUTES.PRODUCT_LIST}
+            component={ProductsListScreen}
+          />
+        </RootStack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  mainContainer: {flex: 1},
+});
 
 export default App;

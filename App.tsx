@@ -15,6 +15,8 @@ const App = () => {
     SplashScreen.hide();
   }, []);
 
+  // Nice to haves: error and loading handling
+
   return (
     <Provider store={store}>
       <PersistGate persistor={persistor}>

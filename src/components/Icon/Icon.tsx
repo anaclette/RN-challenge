@@ -1,14 +1,14 @@
 import React from 'react';
-import {ViewStyle} from 'react-native';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
 import {Icons} from '../../enum/Icons';
 import icoMoonConfig from './selection.json';
+import metrics from '@/utils/themes/metrics';
+import colors from '@/utils/themes/colors';
 
 interface Props {
   name: Icons | string;
   size?: number;
   color?: string;
-  style?: ViewStyle | ViewStyle[];
 }
 
 const IcoMoon = createIconSetFromIcoMoon(
@@ -17,6 +17,8 @@ const IcoMoon = createIconSetFromIcoMoon(
   'icomoon.ttf',
 );
 
-export const Icon = ({name, size = 50, color = 'purple', style}: Props) => (
-  <IcoMoon name={name} size={size} color={color} style={style} />
-);
+export const Icon = ({
+  name,
+  size = metrics.scale(50),
+  color = colors.darkIcon,
+}: Props) => <IcoMoon name={name} size={size} color={color} />;

@@ -27,7 +27,7 @@ const App = () => {
                 name={ROOT_ROUTES.HOME}
                 component={HomeScreen}
                 options={{
-                  header: ({navigation}) => <Header navigation={navigation} />,
+                  header: () => <Header />,
                 }}
               />
               <RootStack.Screen

@@ -1,14 +1,16 @@
 import {ROOT_ROUTES} from '@/navigation/routes';
-import {RootStackScreenProps} from '@/navigation/types';
+import {RootStackParamList} from '@/navigation/types';
 import colors from '@/utils/themes/colors';
 import metrics from '@/utils/themes/metrics';
+import {useNavigation} from '@react-navigation/native';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';
 import {Image, StyleSheet, SafeAreaView, TouchableOpacity} from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export const Header = ({
-  navigation,
-}: RootStackScreenProps<ROOT_ROUTES.MODAL>) => {
+export const Header = () => {
+  const navigation =
+    useNavigation<NativeStackNavigationProp<RootStackParamList>>();
   return (
     <SafeAreaView style={styles.container}>
       <Image

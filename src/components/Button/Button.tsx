@@ -7,6 +7,8 @@ import {
   StyleSheet,
   FlexStyle,
   View,
+  TextStyle,
+  ViewStyle,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
@@ -17,6 +19,8 @@ interface Props {
   size?: number;
   color?: string;
   wrapperStyle?: FlexStyle;
+  buttonStyle?: ViewStyle;
+  textStyle?: TextStyle;
 }
 
 export const Button = ({
@@ -26,15 +30,17 @@ export const Button = ({
   size,
   onPress,
   wrapperStyle,
+  buttonStyle,
+  textStyle,
 }: Props) => {
   return (
     <TouchableOpacity
       accessibilityRole="button"
       activeOpacity={0.5}
       onPress={onPress}
-      style={styles.button}>
-      <View style={wrapperStyle ? wrapperStyle : styles.wrapperStyle}>
-        {text && <Text style={styles.text}>{text}</Text>}
+      style={buttonStyle ?? styles.button}>
+      <View style={wrapperStyle ?? styles.wrapperStyle}>
+        {text && <Text style={textStyle ?? styles.text}>{text}</Text>}
         {icon && (
           <Icon
             name={icon}
@@ -56,6 +62,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     minWidth: metrics.moderateScale(180),
     maxHeight: metrics.verticalScale(90),
+    backgroundColor: colors.lightContrast,
+    borderColor: colors.darkContrast,
   },
   text: {
     fontSize: metrics.scaledFontSize(20),

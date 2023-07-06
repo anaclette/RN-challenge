@@ -6,30 +6,49 @@ import {ROOT_ROUTES} from '@/navigation/routes';
 import {HomeScreen, ModalScreen, ProductsListScreen} from '@/screens';
 import {StyleSheet, View} from 'react-native';
 import {Header} from '@/components';
+import {Provider} from 'react-redux';
+import {persistor, store} from '@/state/store';
+import {PersistGate} from 'redux-persist/lib/integration/react';
 
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
   }, []);
 
-  /* TODO: ADD THE STORE PROVIDER */
-
   return (
-    <View style={styles.mainContainer}>
-      <NavigationContainer>
-        <RootStack.Navigator
-          screenOptions={{
-            header: () => <Header />,
-          }}>
-          <RootStack.Screen name={ROOT_ROUTES.HOME} component={HomeScreen} />
-          <RootStack.Screen name={ROOT_ROUTES.MODAL} component={ModalScreen} />
-          <RootStack.Screen
-            name={ROOT_ROUTES.PRODUCT_LIST}
-            component={ProductsListScreen}
-          />
-        </RootStack.Navigator>
-      </NavigationContainer>
-    </View>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <View style={styles.mainContainer}>
+          <NavigationContainer>
+            <RootStack.Navigator>
+              <RootStack.Screen
+                name={ROOT_ROUTES.HOME}
+                component={HomeScreen}
+                options={{
+                  header: ({navigation}) => <Header navigation={navigation} />,
+                }}
+              />
+              <RootStack.Screen
+                name={ROOT_ROUTES.MODAL}
+                component={ModalScreen}
+                options={{
+                  animation: 'fade',
+                  presentation: 'transparentModal',
+                  headerShown: false,
+                }}
+              />
+              <RootStack.Screen
+                name={ROOT_ROUTES.PRODUCT_LIST}
+                component={ProductsListScreen}
+                options={{
+                  animation: 'slide_from_bottom',
+                }}
+              />
+            </RootStack.Navigator>
+          </NavigationContainer>
+        </View>
+      </PersistGate>
+    </Provider>
   );
 };
 

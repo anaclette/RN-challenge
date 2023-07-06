@@ -1,6 +1,6 @@
 import React from 'react';
 import {createIconSetFromIcoMoon} from 'react-native-vector-icons';
-import {Icons} from '../../enum/Icons';
+import {Icons} from '@/types/enums';
 import icoMoonConfig from './selection.json';
 import metrics from '@/utils/themes/metrics';
 import colors from '@/utils/themes/colors';

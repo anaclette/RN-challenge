@@ -2,10 +2,9 @@ import React from 'react';
 import {StyleSheet, View, TouchableWithoutFeedback} from 'react-native';
 import {Button} from '@/components';
 import copies from '@/utils/copies';
-import colors from '@/utils/themes/colors';
-import metrics from '@/utils/themes/metrics';
 import {RootStackScreenProps} from '@/navigation/types';
 import {ROOT_ROUTES} from '@/navigation/routes';
+import {metrics, colors} from '@/utils/themes';
 
 export const ModalScreen = ({
   navigation,

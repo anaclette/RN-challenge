@@ -2,10 +2,9 @@ import React, {useEffect} from 'react';
 import {ROOT_ROUTES} from '@/navigation/routes';
 import {RootStackScreenProps} from '@/navigation/types';
 import {Product} from '@/types/interfaces';
-import metrics from '@/utils/themes/metrics';
 import {StyleSheet, Text, View, FlatList, Image} from 'react-native';
 import {Button} from '@/components';
-import colors from '@/utils/themes/colors';
+import {metrics, colors} from '@/utils/themes';
 
 const renderItem = ({item}: {item: Product}) => {
   return (

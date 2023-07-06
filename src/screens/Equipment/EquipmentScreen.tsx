@@ -4,8 +4,7 @@ import {View, StyleSheet} from 'react-native';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
 import {useGetEquipmentQuery} from '@/state/us-central';
-import metrics from '@/utils/themes/metrics';
-import colors from '@/utils/themes/colors';
+import {metrics, colors} from '@/utils/themes';
 
 export const EquipmentScreen = ({
   navigation,

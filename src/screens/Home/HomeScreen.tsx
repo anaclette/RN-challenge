@@ -7,9 +7,8 @@ import {EquipmentScreen} from '../Equipment';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Icon} from '@/components';
-import colors from '@/utils/themes/colors';
-import metrics from '@/utils/themes/metrics';
 import copies from '@/utils/copies';
+import {metrics, colors} from '@/utils/themes';
 interface IconName {
   name: string;
   focused: boolean;

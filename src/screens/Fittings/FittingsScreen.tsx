@@ -4,8 +4,7 @@ import {View, StyleSheet} from 'react-native';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
 import {useGetFittingsQuery} from '@/state/us-central';
-import metrics from '@/utils/themes/metrics';
-import colors from '@/utils/themes/colors';
+import {colors, metrics} from '@/utils/themes';
 
 export const FittingsScreen = ({
   navigation,
@@ -16,10 +15,10 @@ export const FittingsScreen = ({
     <View style={styles.mainContainer}>
       {!isLoading &&
         isSuccess &&
-        data.map((item, index) => {
+        data.map(item => {
           return (
             <Button
-              key={'item' + index}
+              key={item.name}
               icon="chevron-right"
               color={colors.darkContrast}
               size={metrics.scale(25)}

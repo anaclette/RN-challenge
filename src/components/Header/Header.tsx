@@ -1,7 +1,6 @@
 import {ROOT_ROUTES} from '@/navigation/routes';
 import {RootStackParamList} from '@/navigation/types';
-import colors from '@/utils/themes/colors';
-import metrics from '@/utils/themes/metrics';
+import {metrics, colors} from '@/utils/themes';
 import {useNavigation} from '@react-navigation/native';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import React from 'react';

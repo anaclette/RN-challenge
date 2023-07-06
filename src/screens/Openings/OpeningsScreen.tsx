@@ -4,9 +4,7 @@ import {Button} from '@/components';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
 import {useGetOpeningsQuery} from '@/state/us-central';
-import metrics from '@/utils/themes/metrics';
-import colors from '@/utils/themes/colors';
-import {Stock} from '@/types/interfaces';
+import {metrics, colors} from '@/utils/themes';
 
 export const OpeningsScreen = ({
   navigation,
@@ -17,10 +15,10 @@ export const OpeningsScreen = ({
     <View style={styles.mainContainer}>
       {!isLoading &&
         isSuccess &&
-        data.map((item: Stock, index: number) => {
+        data.map(item => {
           return (
             <Button
-              key={'item' + index}
+              key={item.name}
               icon="chevron-right"
               size={metrics.scale(25)}
               color={colors.darkContrast}

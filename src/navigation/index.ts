@@ -1,9 +1,9 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {HomeTabParamList, RootStackParamList} from './types';
-import {createMaterialBottomTabNavigator} from '@react-navigation/material-bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
-const HomeTabs = createMaterialBottomTabNavigator<HomeTabParamList>();
+const HomeTabs = createBottomTabNavigator<HomeTabParamList>();
 
 export {RootStack, HomeTabs};

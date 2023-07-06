@@ -10,6 +10,8 @@ import {Provider} from 'react-redux';
 import {persistor, store} from '@/state/store';
 import {PersistGate} from 'redux-persist/lib/integration/react';
 
+const renderHeader = () => <Header />;
+
 const App = () => {
   useEffect(() => {
     SplashScreen.hide();
@@ -27,7 +29,7 @@ const App = () => {
                 name={ROOT_ROUTES.HOME}
                 component={HomeScreen}
                 options={{
-                  header: () => <Header />,
+                  header: renderHeader,
                 }}
               />
               <RootStack.Screen

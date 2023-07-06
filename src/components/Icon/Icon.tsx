@@ -20,5 +20,5 @@ const IcoMoon = createIconSetFromIcoMoon(
 export const Icon = ({
   name,
   size = metrics.scale(50),
-  color = colors.darkIcon,
+  color = colors.darkContrast,
 }: Props) => <IcoMoon name={name} size={size} color={color} />;

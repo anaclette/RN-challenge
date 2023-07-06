@@ -24,6 +24,7 @@ export const OpeningsScreen = ({
               icon="chevron-right"
               size={metrics.scale(25)}
               color={colors.darkContrast}
+              textStyle={styles.buttonText}
               onPress={() =>
                 navigation.navigate(ROOT_ROUTES.PRODUCT_LIST, {
                   items: item.items,
@@ -42,5 +43,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
+  },
+  buttonText: {
+    color: colors.darkContrast,
+    fontSize: metrics.scaledFontSize(20),
   },
 });

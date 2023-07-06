@@ -9,9 +9,9 @@ import colors from '@/utils/themes/colors';
 
 const renderItem = ({item}: {item: Product}) => {
   return (
-    <View key={item.name}>
+    <View key={item.name} style={styles.imageWrapper}>
+      <Text style={styles.title}>{item.name}</Text>
       <Image source={{uri: item.img}} style={styles.image} />
-      <Text>{item.name}</Text>
     </View>
   );
 };
@@ -34,12 +34,23 @@ export const ProductsListScreen = ({
           buttonStyle={styles.closeButton}
         />
       ),
+      headerTitleStyle: {
+        color: colors.darkContrast,
+        fontSize: metrics.scaledFontSize(20),
+      },
+      headerStyle: {
+        backgroundColor: colors.inactive,
+      },
     });
   }, [navigation, title]);
 
   return (
     <View style={styles.container}>
-      <FlatList data={items} renderItem={renderItem} />
+      <FlatList
+        data={items}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+      />
     </View>
   );
 };
@@ -47,11 +58,19 @@ export const ProductsListScreen = ({
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: 'center',
   },
-  title: {},
+  title: {
+    fontSize: metrics.scaledFontSize(20),
+    marginVertical: metrics.verticalScale(10),
+  },
+  imageWrapper: {
+    width: metrics.scale(300),
+    height: metrics.scale(300),
+  },
   image: {
-    width: metrics.moderateScale(80),
-    height: metrics.verticalScale(80),
+    flex: 1,
+    borderRadius: metrics.scale(10),
   },
   closeButton: {
     alignSelf: 'flex-start',

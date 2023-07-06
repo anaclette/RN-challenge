@@ -22,6 +22,7 @@ export const EquipmentScreen = ({
               key={'item' + index}
               icon="chevron-right"
               size={metrics.scale(25)}
+              textStyle={styles.buttonText}
               color={colors.darkContrast}
               onPress={() =>
                 navigation.navigate(ROOT_ROUTES.PRODUCT_LIST, {
@@ -41,5 +42,9 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     justifyContent: 'space-evenly',
+  },
+  buttonText: {
+    color: colors.darkContrast,
+    fontSize: metrics.scaledFontSize(20),
   },
 });

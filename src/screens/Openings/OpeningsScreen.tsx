@@ -1,6 +1,6 @@
 import React from 'react';
 import {View, StyleSheet} from 'react-native';
-import {Button} from '@/components';
+import {Button, Spinner} from '@/components';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
 import {useGetOpeningsQuery} from '@/state/us-central';
@@ -13,6 +13,7 @@ export const OpeningsScreen = ({
 
   return (
     <View style={styles.mainContainer}>
+      {isLoading && <Spinner />}
       {!isLoading &&
         isSuccess &&
         data.map(item => {

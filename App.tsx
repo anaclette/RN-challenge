@@ -12,7 +12,7 @@ const App = () => {
     SplashScreen.hide();
   }, []);
 
-  // Nice to haves: error and loading handling
+  // Nice to have: add error handling
 
   return (
     <Provider store={store}>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '@/components';
+import {Button, Spinner} from '@/components';
 import {View, StyleSheet} from 'react-native';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
@@ -13,12 +13,13 @@ export const EquipmentScreen = ({
 
   return (
     <View style={styles.mainContainer}>
+      {isLoading && <Spinner />}
       {!isLoading &&
         isSuccess &&
-        data.map((item, index) => {
+        data.map(item => {
           return (
             <Button
-              key={'item' + index}
+              key={item.name}
               icon="chevron-right"
               size={metrics.scale(25)}
               textStyle={styles.buttonText}

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button} from '@/components';
+import {Button, Spinner} from '@/components';
 import {View, StyleSheet} from 'react-native';
 import {HOME_ROUTES, ROOT_ROUTES} from '@/navigation/routes';
 import {HomeTabScreenProps} from '@/navigation/types';
@@ -13,6 +13,7 @@ export const FittingsScreen = ({
 
   return (
     <View style={styles.mainContainer}>
+      {isLoading && <Spinner />}
       {!isLoading &&
         isSuccess &&
         data.map(item => {

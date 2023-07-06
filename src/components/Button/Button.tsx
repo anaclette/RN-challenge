@@ -1,6 +1,6 @@
+import React from 'react';
 import colors from '@/utils/themes/colors';
 import metrics from '@/utils/themes/metrics';
-import React from 'react';
 import {
   TouchableOpacity,
   Text,

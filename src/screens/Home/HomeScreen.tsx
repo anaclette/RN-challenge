@@ -6,9 +6,11 @@ import {FittingsScreen} from '../Fittings';
 import {EquipmentScreen} from '../Equipment';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
-import {Icon} from '@/components';
 import copies from '@/utils/copies';
 import {metrics, colors} from '@/utils/themes';
+import {modalOptions} from './options/modalOptions';
+import {Icon} from '@/components';
+
 interface IconName {
   name: string;
   focused: boolean;
@@ -22,6 +24,10 @@ const TabBarIcon = ({name, focused}: IconName) => {
       color={focused ? colors.lightContrast : colors.regularIcon}
     />
   );
+};
+
+const getTabBarIcon = (iconName: string, focused: boolean) => {
+  return <TabBarIcon name={iconName} focused={focused} />;
 };
 
 export const HomeScreen = () => {
@@ -43,14 +49,9 @@ export const HomeScreen = () => {
         <HomeTabs.Screen
           name={HOME_ROUTES.OPENINGS}
           options={{
-            tabBarInactiveTintColor: colors.inactive,
-            tabBarActiveTintColor: colors.lightContrast,
-            tabBarLabelStyle: {fontSize: metrics.scaledFontSize(15)},
-            headerShown: false,
+            ...modalOptions,
+            tabBarIcon: ({focused}) => getTabBarIcon('Openings', focused),
             title: copies.openingsTab,
-            tabBarIcon: ({focused}) => (
-              <TabBarIcon focused={focused} name="Openings" />
-            ),
             tabBarAccessibilityLabel: copies.openingsTab,
           }}
           component={OpeningsScreen}
@@ -58,14 +59,9 @@ export const HomeScreen = () => {
         <HomeTabs.Screen
           name={HOME_ROUTES.FITTINGS}
           options={{
-            tabBarInactiveTintColor: colors.inactive,
-            tabBarActiveTintColor: colors.lightContrast,
-            tabBarLabelStyle: {fontSize: metrics.scaledFontSize(15)},
-            headerShown: false,
+            ...modalOptions,
+            tabBarIcon: ({focused}) => getTabBarIcon('Fittings', focused),
             title: copies.fittingsTab,
-            tabBarIcon: ({focused}) => (
-              <TabBarIcon focused={focused} name="Fittings" />
-            ),
             tabBarAccessibilityLabel: copies.fittingsTab,
           }}
           component={FittingsScreen}
@@ -73,14 +69,9 @@ export const HomeScreen = () => {
         <HomeTabs.Screen
           name={HOME_ROUTES.EQUIPMENT}
           options={{
-            tabBarInactiveTintColor: colors.inactive,
-            tabBarActiveTintColor: colors.lightContrast,
-            tabBarLabelStyle: {fontSize: metrics.scaledFontSize(15)},
-            headerShown: false,
+            ...modalOptions,
+            tabBarIcon: ({focused}) => getTabBarIcon('Equipment', focused),
             title: copies.equipmentTab,
-            tabBarIcon: ({focused}) => (
-              <TabBarIcon focused={focused} name="Equipment" />
-            ),
             tabBarAccessibilityLabel: copies.equipmentTab,
           }}
           component={EquipmentScreen}

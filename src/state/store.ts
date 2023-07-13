@@ -11,6 +11,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import {usCentralApi} from './us-central';
+import authSlice from './slices/authSlice';
 
 const persistConfig = {
   key: 'root',
@@ -20,6 +21,7 @@ const persistConfig = {
 
 const rootReducer = combineReducers({
   [usCentralApi.reducerPath]: usCentralApi.reducer,
+  ['auth']: authSlice,
 });
 
 const reduxDebugger = require('redux-flipper').default();

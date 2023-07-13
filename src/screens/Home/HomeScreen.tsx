@@ -1,15 +1,17 @@
 import React from 'react';
 import {HomeTabs} from '@/navigation';
 import {HOME_ROUTES} from '@/navigation/routes';
-import {OpeningsScreen} from '../Openings';
-import {FittingsScreen} from '../Fittings';
-import {EquipmentScreen} from '../Equipment';
 import {SafeAreaView, StyleSheet, View} from 'react-native';
 import {useSafeAreaInsets} from 'react-native-safe-area-context';
 import copies from '@/utils/copies';
 import {metrics, colors} from '@/utils/themes';
 import {modalOptions} from './options/modalOptions';
-import {Icon} from '@/components';
+import {Icon as CustomIcon} from '@/components';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+import {EquipmentScreen} from '../Equipment';
+import {FittingsScreen} from '../Fittings';
+import {LoginScreen} from '../Login';
+import {OpeningsScreen} from '../Openings';
 
 interface IconName {
   name: string;
@@ -18,7 +20,7 @@ interface IconName {
 
 const TabBarIcon = ({name, focused}: IconName) => {
   return (
-    <Icon
+    <CustomIcon
       name={name}
       size={metrics.scale(30)}
       color={focused ? colors.lightContrast : colors.regularIcon}
@@ -46,6 +48,22 @@ export const HomeScreen = () => {
             paddingBottom: metrics.verticalScale(15),
           },
         }}>
+        <HomeTabs.Screen
+          name={HOME_ROUTES.LOGIN}
+          options={{
+            ...modalOptions,
+            tabBarIcon: ({focused}) => (
+              <Icon
+                name="login"
+                size={metrics.scale(30)}
+                color={focused ? colors.lightContrast : colors.regularIcon}
+              />
+            ),
+            title: 'Login',
+            tabBarAccessibilityLabel: 'Login',
+          }}
+          component={LoginScreen}
+        />
         <HomeTabs.Screen
           name={HOME_ROUTES.OPENINGS}
           options={{

@@ -21,6 +21,7 @@ interface Props {
   wrapperStyle?: FlexStyle;
   buttonStyle?: ViewStyle;
   textStyle?: TextStyle;
+  disabled?: boolean;
 }
 
 export const Button = ({
@@ -32,12 +33,14 @@ export const Button = ({
   wrapperStyle,
   buttonStyle,
   textStyle,
+  disabled,
 }: Props) => {
   return (
     <TouchableOpacity
       accessibilityRole="button"
       activeOpacity={0.5}
       onPress={onPress}
+      disabled={disabled}
       style={buttonStyle ?? styles.button}>
       <View style={wrapperStyle ?? styles.wrapperStyle}>
         {text && <Text style={textStyle ?? styles.text}>{text}</Text>}

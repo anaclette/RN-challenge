@@ -11,6 +11,7 @@ export type HomeTabParamList = {
   [HOME_ROUTES.EQUIPMENT]: undefined;
   [HOME_ROUTES.FITTINGS]: undefined;
   [HOME_ROUTES.OPENINGS]: undefined;
+  [HOME_ROUTES.LOGIN]: undefined;
 };
 
 export type RootStackParamList = {

@@ -34,7 +34,7 @@ export const LoginScreen = () => {
         </View>
       ) : (
         <View style={styles.contentWrapper}>
-          <Text style={styles.text}>Hola {userInput}! </Text>
+          <Text style={styles.text}>Hola {user}! </Text>
           <Button
             buttonStyle={styles.button}
             text="Salir"

@@ -4,15 +4,16 @@ type AuthState = {
   user: string | null;
 };
 
+const initialState: AuthState = {
+  user: null,
+};
+
 const slice = createSlice({
   name: 'auth',
-  initialState: {user: null, token: null} as AuthState,
+  initialState,
   reducers: {
-    setCredentials: (
-      state,
-      {payload: {user}}: PayloadAction<{user: string | null}>,
-    ) => {
-      state.user = user;
+    setCredentials: (state, action: PayloadAction<AuthState>) => {
+      state.user = action.payload.user;
     },
   },
 });
